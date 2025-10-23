@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Top Grey Bar with Back Arrow -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#353535"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/titleText"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"/>
+
+    <!-- Cards RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cardsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="2"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:scrollbars="vertical" />
+
+    <!-- Bottom Swipeable Nav Bar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#CCCCCC"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- History -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconHistory"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/history" />
+                <TextView
+                    android:text="History"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Gallery -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconGallery"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/image_gallery" />
+                <TextView
+                    android:text="Gallery"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Action -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconAction"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/action" />
+                <TextView
+                    android:text="Action"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Food -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconFood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/burger" />
+                <TextView
+                    android:text="Food"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Tool -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconTool"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/tool_box" />
+                <TextView
+                    android:text="Tool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Clothes -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconClothes"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/male_clothes" />
+                <TextView
+                    android:text="Clothes"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Place -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconPlace"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/house" />
+                <TextView
+                    android:text="Place"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Vehicle -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp">
+                <ImageView
+                    android:id="@+id/iconVehicle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/sport_car" />
+                <TextView
+                    android:text="Vehicle"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

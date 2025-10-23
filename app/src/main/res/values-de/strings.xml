@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">To-Do-Liste für Kinder</string>
+    <string name="welcome">Willkommen</string>
+    <string name="taskListTitle">Aufgabenliste</string>
+    <string name="task1CheckBox">Morgenaufgabe</string>
+    <string name="task2CheckBox">Umziehen</string>
+    <string name="language_option">Sprache</string>
+    <string name="sound_option">Klang</string>
+    <string name="text">Fügen wir eine Aufgabe hinzu!</string>
+    <string name="taskNameEditText">Aufgabenname</string>
+    <string name="titleText">Wählen Sie eine Karte</string>
+    <string name="cardTitle">Card</string>
+</resources>

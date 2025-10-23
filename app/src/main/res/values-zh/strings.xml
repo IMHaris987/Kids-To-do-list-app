@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">孩子們的待辦事項清單</string>
+    <string name="welcome">歡迎</string>
+    <string name="taskListTitle">任務清單</string>
+    <string name="task1CheckBox">上午任務</string>
+    <string name="task2CheckBox">換衣服</string>
+    <string name="language_option">語言</string>
+    <string name="sound_option">聲音</string>
+    <string name="text">让我们添加一个任务吧！</string>
+    <string name="taskNameEditText">任務名稱</string>
+    <string name="titleText">選擇一張卡</string>
+</resources>

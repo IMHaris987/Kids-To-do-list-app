@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lista de tareas para niños</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="taskListTitle">lista de tareas</string>
+    <string name="task1CheckBox">tarea de la mañana</string>
+    <string name="task2CheckBox">cambiarse de ropa</string>
+    <string name="language_option">idioma</string>
+    <string name="sound_option">Sonido</string>
+    <string name="text">¡Vamos a agregar una tarea!</string>
+    <string name="taskNameEditText">nombre de la tarea</string>
+    <string name="titleText">seleccione una tarjeta</string>
+</resources>

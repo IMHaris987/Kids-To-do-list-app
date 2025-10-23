@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Top Yellow Bar -->
+
+    <!-- Content Area (Optional spacer) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#FFDD32">
+
+        <!-- Back Icon -->
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            app:tint="#000" />
+
+        <!-- Search/Edit Task Bar -->
+        <EditText
+            android:id="@+id/taskNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_toEndOf="@id/backIcon"
+            android:layout_toStartOf="@id/tickIcon"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/search_bar_background"
+            android:gravity="center"
+            android:text="@string/taskNameEditText"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:inputType="textCapSentences" />
+
+        <!-- Tick Icon -->
+        <ImageView
+            android:id="@+id/tickIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_tick"
+            android:contentDescription="Save"
+            app:tint="#000" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="#E9E3E0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/plusIcon"
+            android:text="@string/text"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"/>
+        <!-- You can add form fields or task details here -->
+    </LinearLayout>
+
+    <!-- Bottom Green Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#4CAF50">
+
+        <ImageView
+            android:id="@+id/plusIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_add"
+            android:contentDescription="Add Task"
+            app:tint="#FFF" />
+    </RelativeLayout>
+</LinearLayout>

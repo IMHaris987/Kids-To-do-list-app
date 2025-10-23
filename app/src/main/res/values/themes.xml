@@ -1,0 +1,10 @@
+<resources>
+    <style name="Base.Theme.Kidstodolist" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Theme.Kidstodolist" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Your main theme -->
+    </style>
+</resources>

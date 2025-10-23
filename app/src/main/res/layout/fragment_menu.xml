@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f5f5f5">
+
+    <TextView
+        android:id="@+id/language_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_language"
+        android:drawablePadding="16dp"
+        android:text="@string/language_option"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:padding="12dp"
+        android:background="@drawable/rounded_background"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/sound_option"
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/rounded_background"
+            android:drawableLeft="@drawable/ic_volume"
+            android:drawablePadding="16dp"
+            android:padding="12dp"
+            android:text="@string/sound_option"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/sound_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:textColor="#333333"/>
+
+    </LinearLayout>
+
+</LinearLayout>

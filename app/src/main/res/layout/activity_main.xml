@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
+
+    <!-- Main Content -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#FFDD32"
+            android:elevation="4dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp">
+
+            <!-- Menu Icon -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Menu Icon"
+                android:layout_marginStart="16dp"
+                android:paddingTop="15dp"/>
+
+            <!-- Back Icon -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back"
+                android:layout_marginStart="16dp"
+                android:paddingTop="15dp"
+                android:tint="@android:color/white"
+                android:visibility="gone" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/taskListTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/taskListTitle"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:paddingTop="15dp"/>
+
+            <!-- Edit Pen Icon -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/penIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Pen Icon"
+                android:layout_marginEnd="16dp"
+                android:paddingTop="15dp"
+                android:tint="@android:color/black" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- Task List Scroll -->
+        <ScrollView
+            android:id="@+id/contentScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:background="#E8E3DF"
+            android:padding="16dp"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:divider="?android:attr/dividerHorizontal"
+                android:showDividers="middle">
+
+                <!-- Task 1 -->
+                <RelativeLayout
+                    android:id="@+id/task1Container"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="3dp"
+                    android:layout_marginBottom="12dp"
+                    android:padding="12dp">
+
+                    <!-- Circle Selector -->
+                    <CheckBox
+                        android:id="@+id/task1CheckBox"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:button="@drawable/selector_checkbox_circle"
+                        android:visibility="gone"
+                        android:layout_centerVertical="true"/>
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_toEndOf="@id/task1CheckBox"
+                        android:layout_marginStart="12dp"
+                        android:src="@drawable/face"
+                        android:background="@drawable/round_image_bg"
+                        android:clipToOutline="true"
+                        android:layout_marginTop="20dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Face Wash Sticker" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/task1CheckBox"
+                        android:layout_marginStart="72dp"
+                        android:text="@string/task1CheckBox"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+
+                <!-- Task 2 -->
+                <RelativeLayout
+                    android:id="@+id/task2Container"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="3dp"
+                    android:layout_marginBottom="12dp"
+                    android:padding="12dp">
+
+                    <CheckBox
+                        android:id="@+id/task2CheckBox"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:button="@drawable/selector_checkbox_circle"
+                        android:visibility="gone"
+                        android:layout_centerVertical="true"/>
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_toEndOf="@id/task2CheckBox"
+                        android:layout_marginStart="12dp"
+                        android:src="@drawable/male_clothes"
+                        android:background="@drawable/round_image_bg"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:layout_marginTop="20dp"
+                        android:contentDescription="Changing Clothes Sticker" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/task2CheckBox"
+                        android:layout_marginStart="72dp"
+                        android:text="@string/task2CheckBox"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:src="@android:drawable/ic_input_add"
+            android:tint="@android:color/black" />
+
+        <!-- ✅ Custom Bottom Action Bar (BLACK) -->
+        <LinearLayout
+            android:id="@+id/bottomActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:background="@android:color/black"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:visibility="gone">
+
+            <!-- Left: Favorite -->
+            <ImageView
+                android:id="@+id/favoriteIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star"
+                android:contentDescription="Favorite"
+                app:tint="@android:color/white" />
+
+            <!-- Center: Select All -->
+            <TextView
+                android:id="@+id/selectAllText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Select All"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <!-- Right: Delete -->
+            <ImageView
+                android:id="@+id/deleteIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:contentDescription="Delete"
+                app:tint="@android:color/white" />
+        </LinearLayout>
+
+        <!-- ✅ Fragment Container -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:background="#AA000000"
+            android:visibility="gone" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:paddingTop="56dp" >
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

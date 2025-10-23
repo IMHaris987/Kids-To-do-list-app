@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">بچوں کی فہرست</string>
+    <string name="welcome">خوش آمدید</string>
+    <string name="taskListTitle">کام کی فہرست</string>
+    <string name="task1CheckBox">صبح کا کام</string>
+    <string name="task2CheckBox">کپڑے تبدیل کرنا</string>
+    <string name="language_option">زبان</string>
+    <string name="sound_option">آواز</string>
+    <string name="text">آئیے ایک کام شامل کریں۔</string>
+    <string name="taskNameEditText">کام کا نام</string>
+    <string name="titleText">ایک کارڈ کا انتخاب کریں</string>
+</resources>

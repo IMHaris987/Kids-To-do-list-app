@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>FFF9C4
+    <color name="nav_selected_bg">#FFF9C4</color>    <!-- light yellow background -->
+    <color name="nav_unselected_bg">#00000000</color> <!-- transparent -->
+    <color name="nav_selected_text">#000000</color>  <!-- text when selected -->
+    <color name="nav_unselected_text">#000000</color> <!-- text when unselected (keep black) -->
+    <color name="yellow">#E4FFE81A</color>
+</resources>
