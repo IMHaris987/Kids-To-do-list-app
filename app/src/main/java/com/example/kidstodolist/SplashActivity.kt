@@ -13,19 +13,19 @@ class SplashActivity : AppCompatActivity() {
 
         val logo = findViewById<View>(R.id.logoContainer)
 
-        // Fade In animation
+        // Animate splash logo with fade in and fade out effects
         logo.animate()
-            .alpha(1f)              // go from 0 → 1
-            .setDuration(1000)      // 1 second
+            .alpha(1f)              // fade in from transparent
+            .setDuration(1000)      // for 1 second
             .withEndAction {
-                // After fade in completes, wait a moment then fade out
+                // After fade-in → delay → fade-out → open MainActivity
                 logo.animate()
-                    .alpha(0f)      // fade back to 0
-                    .setDuration(800) // 0.8 second fade out
-                    .setStartDelay(800) // visible for 0.8 seconds before fading out
+                    .alpha(0f)      // fade out to transparent
+                    .setDuration(800)
+                    .setStartDelay(800) // stay visible for 0.8 sec
                     .withEndAction {
                         startActivity(Intent(this, MainActivity::class.java))
-                        finish()
+                        finish() // close splash so user can't go back to it
                     }
             }
     }

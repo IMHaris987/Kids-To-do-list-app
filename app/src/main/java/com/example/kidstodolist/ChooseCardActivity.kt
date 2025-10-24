@@ -9,8 +9,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+// Activity that lets users choose a card category (like History, Action, Food, etc.)
+// Displays cards in a grid and dynamically updates based on selected category
 class ChooseCardActivity : BaseActivity() {
 
+    // UI components
     private lateinit var backIcon: ImageView
     private lateinit var cardsRecyclerView: RecyclerView
     private lateinit var cardAdapter: CardAdapter
@@ -24,29 +27,27 @@ class ChooseCardActivity : BaseActivity() {
         backIcon = findViewById(R.id.backIcon)
         cardsRecyclerView = findViewById(R.id.cardsRecyclerView)
 
-        // Setup RecyclerView with GridLayoutManager (3 columns)
+        // Set layout manager with 3 columns
         cardsRecyclerView.layoutManager = GridLayoutManager(this, 3)
 
-        // Default category
+        // Default category shown at startup
         showCardsForCategory("History")
         updateSelectedIconBackground(R.id.iconHistory)
 
-        // Click listeners for each category icon
+        // Handle icon clicks to switch between categories or open gallery fragment
         findViewById<ImageView>(R.id.iconHistory).setOnClickListener {
             showCardsForCategory("History")
             updateSelectedIconBackground(R.id.iconHistory)
         }
-        findViewById<ImageView>(R.id.iconGallery).setOnClickListener {
-            // Hide RecyclerView
-            cardsRecyclerView.visibility = View.GONE
 
-            // Open GalleryFragment
+        findViewById<ImageView>(R.id.iconGallery).setOnClickListener {
+            // Hide RecyclerView and open GalleryFragment
+            cardsRecyclerView.visibility = View.GONE
             val fragment = GalleryFragment()
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, fragment) // fragmentContainer is a FrameLayout in your layout
+                .replace(R.id.fragmentContainer, fragment)
                 .addToBackStack(null)
                 .commit()
-
             updateSelectedIconBackground(R.id.iconGallery)
         }
 
@@ -75,12 +76,12 @@ class ChooseCardActivity : BaseActivity() {
             updateSelectedIconBackground(R.id.iconVehicle)
         }
 
-        // Back arrow click
+        // Back button closes activity
         backIcon.setOnClickListener { finish() }
     }
 
     /**
-     * Loads cards for a given category and updates the RecyclerView.
+     * Populates the RecyclerView with cards for the selected category.
      */
     private fun showCardsForCategory(category: String) {
         cardList = when (category) {
@@ -157,12 +158,14 @@ class ChooseCardActivity : BaseActivity() {
             else -> emptyList()
         }
 
+        // Set adapter with filtered cards
         cardAdapter = CardAdapter(cardList)
         cardsRecyclerView.adapter = cardAdapter
     }
 
     /**
-     * Updates icon background (light yellow only behind the icon, not the full area)
+     * Highlights the currently selected category icon with a yellow circular background
+     * and changes text color accordingly.
      */
     private fun updateSelectedIconBackground(selectedIconId: Int) {
         val iconIds = listOf(
@@ -176,7 +179,7 @@ class ChooseCardActivity : BaseActivity() {
             R.id.iconVehicle
         )
 
-        val selectedBg = ContextCompat.getDrawable(this, R.drawable.icon_yellow_circle) // circular light yellow bg
+        val selectedBg = ContextCompat.getDrawable(this, R.drawable.icon_yellow_circle)
         val unselectedBg = null
         val selectedText = ContextCompat.getColor(this, R.color.nav_selected_text)
         val unselectedText = ContextCompat.getColor(this, R.color.nav_unselected_text)
@@ -185,18 +188,16 @@ class ChooseCardActivity : BaseActivity() {
             val icon = findViewById<ImageView>(id)
             val parent = icon.parent
             if (parent is LinearLayout) {
-                // Only change icon background, not full container
-                if (id == selectedIconId) {
-                    icon.background = selectedBg
-                } else {
-                    icon.background = unselectedBg
-                }
+                // Apply circular background only behind icon
+                icon.background = if (id == selectedIconId) selectedBg else unselectedBg
 
-                // Change text color
+                // Change label text color under the icon
                 if (parent.childCount >= 2) {
                     val labelView = parent.getChildAt(1)
                     if (labelView is TextView) {
-                        labelView.setTextColor(if (id == selectedIconId) selectedText else unselectedText)
+                        labelView.setTextColor(
+                            if (id == selectedIconId) selectedText else unselectedText
+                        )
                     }
                 }
             }

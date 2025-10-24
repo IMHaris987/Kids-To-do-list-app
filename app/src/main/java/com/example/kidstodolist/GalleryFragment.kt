@@ -11,43 +11,49 @@ import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 
+// Fragment that lets the user either open the camera or select an image from the gallery
+// Displays the selected or captured image in an ImageView
 class GalleryFragment : Fragment() {
 
+    // UI components
     private lateinit var btnOpenCamera: Button
     private lateinit var btnOpenGallery: Button
     private lateinit var imgPreview: ImageView
 
-    // Launcher for Gallery
+    // Gallery launcher — opens device gallery and returns selected image URI
     private val galleryLauncher = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { uri: Uri? ->
-        uri?.let { imgPreview.setImageURI(it) }
+        uri?.let { imgPreview.setImageURI(it) } // Display selected image
     }
 
-    // Launcher for Camera
+    // Camera launcher — opens device camera and returns captured image as a Bitmap
     private val cameraLauncher = registerForActivityResult(
         ActivityResultContracts.TakePicturePreview()
     ) { bitmap: Bitmap? ->
-        bitmap?.let { imgPreview.setImageBitmap(it) }
+        bitmap?.let { imgPreview.setImageBitmap(it) } // Display captured image
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate layout for gallery fragment
         val view = inflater.inflate(R.layout.fragment_gallery, container, false)
 
+        // Initialize UI elements
         btnOpenCamera = view.findViewById(R.id.btnOpenCamera)
         btnOpenGallery = view.findViewById(R.id.btnOpenGallery)
         imgPreview = view.findViewById(R.id.imgPreview)
 
+        // Button click to open gallery
         btnOpenGallery.setOnClickListener {
-            // Open gallery
             galleryLauncher.launch("image/*")
         }
 
+        // Button click to open camera
         btnOpenCamera.setOnClickListener {
-            // Open camera
             cameraLauncher.launch(null)
         }
 

@@ -14,13 +14,14 @@ class LanguageSelectionFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private val languages = listOf("English", "Urdu", "Spanish", "French", "German", "Chinese")
 
-    // Optional: Callback if parent wants to be notified
+    // Optional callback for notifying parent fragment/activity
     private var languageSelectedListener: ((String) -> Unit)? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate language selection layout
         return inflater.inflate(R.layout.fragment_language_selection, container, false)
     }
 
@@ -29,11 +30,16 @@ class LanguageSelectionFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.language_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Set adapter with click listener for each language
         recyclerView.adapter = LanguageAdapter(languages) { selectedLanguage ->
             applyLanguage(selectedLanguage)
         }
     }
 
+    /**
+     * Apply chosen language and refresh UI.
+     */
     private fun applyLanguage(selectedLanguage: String) {
         val languageCode = when (selectedLanguage) {
             "English" -> "en"
@@ -45,25 +51,25 @@ class LanguageSelectionFragment : Fragment() {
             else -> "en"
         }
 
-        // Update locale using helper
+        // Update locale globally
         LocaleHelper.setLocale(requireContext(), languageCode)
 
-        // Optional: notify parent activity if needed
+        // Notify listener if set
         languageSelectedListener?.invoke(selectedLanguage)
 
-        // Restart activity to apply the language change immediately
+        // Refresh activity to apply new language instantly
         requireActivity().recreate()
 
-        // Optionally pop the fragment if you want to go back
+        // Return to previous fragment
         parentFragmentManager.popBackStack()
     }
 
+    // Allow external listener setup
     fun setLanguageSelectedListener(listener: (String) -> Unit) {
         languageSelectedListener = listener
     }
 
     // ================= Adapter ===================
-
     class LanguageAdapter(
         private val languages: List<String>,
         private val onLanguageClick: (String) -> Unit
@@ -81,6 +87,7 @@ class LanguageSelectionFragment : Fragment() {
 
         override fun getItemCount(): Int = languages.size
 
+        // ViewHolder to display each language option
         class LanguageViewHolder(
             itemView: View,
             private val onLanguageClick: (String) -> Unit
@@ -97,4 +104,3 @@ class LanguageSelectionFragment : Fragment() {
         }
     }
 }
-

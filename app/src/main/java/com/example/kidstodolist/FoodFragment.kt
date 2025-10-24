@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class FoodFragment  : Fragment() {
+// Fragment to display food-related cards or tasks
+// It inflates the layout resource: fragment_food.xml
+class FoodFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,        // Used to inflate layout resources
+        container: ViewGroup?,           // Parent view for the fragment
+        savedInstanceState: Bundle?      // Previously saved state
     ): View? {
+        // Inflate and return the fragment layout
         return inflater.inflate(R.layout.fragment_food, container, false)
     }
 }

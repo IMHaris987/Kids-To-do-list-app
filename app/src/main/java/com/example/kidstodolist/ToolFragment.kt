@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class ToolFragment  : Fragment() {
+class ToolFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate layout for tools section
         return inflater.inflate(R.layout.fragment_tool, container, false)
     }
 }

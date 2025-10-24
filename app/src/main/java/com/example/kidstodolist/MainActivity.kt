@@ -17,8 +17,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
+// ✅ Main screen of the app that handles task list, drawer navigation, and selection mode
 class MainActivity : BaseActivity() {
 
+    // Drawer and toolbar views
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var menuIcon: ImageView
     private lateinit var penIcon: ImageView
@@ -26,24 +28,25 @@ class MainActivity : BaseActivity() {
     private lateinit var fabAddTask: FloatingActionButton
     private lateinit var backIcon: ImageView
 
-    // bottom bar
+    // Bottom action bar (for multi-select mode)
     private lateinit var bottomActionBar: LinearLayout
     private lateinit var favoriteIcon: ImageView
     private lateinit var deleteIcon: ImageView
     private lateinit var selectAllText: TextView
 
-    // task containers & checkboxes
+    // Task items and their checkboxes
     private lateinit var task1Container: View
     private lateinit var task2Container: View
     private lateinit var task1CheckBox: CheckBox
     private lateinit var task2CheckBox: CheckBox
 
-    // states
+    // State variables
     private var isSelectionMode = false
     private var task1IsFavorite = false
     private var task2IsFavorite = false
 
     override fun attachBaseContext(newBase: Context) {
+        // Apply correct locale for this activity
         super.attachBaseContext(LocaleHelper.loadLocale(newBase))
     }
 
@@ -51,11 +54,12 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Show MenuFragment on first launch
         if (savedInstanceState == null) {
             openFragment(MenuFragment())
         }
 
-        // UI references
+        // === Initialize views ===
         drawerLayout = findViewById(R.id.drawer_layout)
         menuIcon = findViewById(R.id.menuIcon)
         penIcon = findViewById(R.id.penIcon)
@@ -64,17 +68,17 @@ class MainActivity : BaseActivity() {
         backIcon = findViewById(R.id.backIcon)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
 
-        // ✅ Load MenuFragment
+        // ✅ Load MenuFragment into navigation drawer
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.navigation_view, MenuFragment())
         transaction.commit()
 
-        // ✅ Open drawer
+        // ✅ Handle drawer open
         menuIcon.setOnClickListener {
             drawerLayout.openDrawer(findViewById(R.id.navigation_view))
         }
 
-        // ✅ Fade animations
+        // ✅ Animations for UI entry
         fadeInView(toolbar, 1000)
         fadeInView(menuIcon, 1200)
         fadeInView(penIcon, 1400)
@@ -82,19 +86,19 @@ class MainActivity : BaseActivity() {
         fadeInView(findViewById(R.id.contentScrollView), 1600)
         scaleToolbar(toolbar)
 
-        // bottom bar views
+        // === Initialize bottom bar ===
         bottomActionBar = findViewById(R.id.bottomActionBar)
         favoriteIcon = findViewById(R.id.favoriteIcon)
         deleteIcon = findViewById(R.id.deleteIcon)
         selectAllText = findViewById(R.id.selectAllText)
 
-        // task views
+        // === Initialize tasks and checkboxes ===
         task1Container = findViewById(R.id.task1Container)
         task2Container = findViewById(R.id.task2Container)
         task1CheckBox = findViewById(R.id.task1CheckBox)
         task2CheckBox = findViewById(R.id.task2CheckBox)
 
-        // initial state
+        // Initial UI state
         bottomActionBar.visibility = View.GONE
         task1CheckBox.visibility = View.GONE
         task2CheckBox.visibility = View.GONE
@@ -102,17 +106,19 @@ class MainActivity : BaseActivity() {
         task2CheckBox.isChecked = false
         selectAllText.text = "Select All"
 
+        // ✅ Checkbox listener updates bottom bar and “Select All” text
         val checkChanged: (CompoundButton, Boolean) -> Unit = { _, _ ->
             updateSelectAllLabel()
             updateBottomFavoriteIconBasedOnSelection()
         }
-
         task1CheckBox.setOnCheckedChangeListener { btn, checked -> checkChanged(btn, checked) }
         task2CheckBox.setOnCheckedChangeListener { btn, checked -> checkChanged(btn, checked) }
 
+        // ✅ Toolbar icon click actions
         penIcon.setOnClickListener { enterSelectionMode() }
         backIcon.setOnClickListener { exitSelectionMode() }
 
+        // ✅ Handle "Select All" toggling
         selectAllText.setOnClickListener {
             val allSelected = task1CheckBox.isChecked && task2CheckBox.isChecked
             task1CheckBox.isChecked = !allSelected
@@ -121,6 +127,7 @@ class MainActivity : BaseActivity() {
             updateBottomFavoriteIconBasedOnSelection()
         }
 
+        // ✅ Favorite and delete button actions
         favoriteIcon.setOnClickListener {
             toggleFavoriteForSelected()
             updateBottomFavoriteIconBasedOnSelection()
@@ -131,6 +138,7 @@ class MainActivity : BaseActivity() {
             updateBottomFavoriteIconBasedOnSelection()
         }
 
+        // ✅ Add task button (opens AddTaskActivity)
         fabAddTask.setOnClickListener {
             val intent = Intent(this, AddTaskActivity::class.java)
             startActivity(intent)
@@ -138,10 +146,11 @@ class MainActivity : BaseActivity() {
 
         updateBottomFavoriteIconBasedOnSelection()
 
-        // ✅ Back press
+        // ✅ Handle back press for fragment visibility
         onBackPressedDispatcher.addCallback(this) {
             val fragmentContainer = findViewById<View>(R.id.fragment_container)
             if (fragmentContainer.visibility == View.VISIBLE) {
+                // Animate and close fragment
                 fragmentContainer.animate()
                     .alpha(0f)
                     .setDuration(200)
@@ -157,22 +166,20 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    // Replace main fragment container content
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
 
-    // ✅ When language is clicked in MenuFragment
+    // ✅ Triggered from MenuFragment to open language selection
     fun closeDrawerAndOpenLanguageFragment() {
-        // Close drawer first
         drawerLayout.closeDrawer(findViewById(R.id.navigation_view))
-
-        // Open language selection after slight delay to avoid flicker
         drawerLayout.postDelayed({
             val fragment = LanguageSelectionFragment().apply {
                 setLanguageSelectedListener { selectedLanguage ->
-                    // ✅ Handle language change here (for example update title)
+                    // Update UI after language change
                     taskListTitle.text = selectedLanguage
                 }
             }
@@ -190,18 +197,21 @@ class MainActivity : BaseActivity() {
         }, 200)
     }
 
+    // === Selection Mode ===
+
     private fun enterSelectionMode() {
         if (isSelectionMode) return
         isSelectionMode = true
 
+        // Update icons and show checkboxes
         menuIcon.visibility = View.GONE
         penIcon.visibility = View.GONE
         backIcon.visibility = View.VISIBLE
         fabAddTask.visibility = View.GONE
-
         task1CheckBox.visibility = View.VISIBLE
         task2CheckBox.visibility = View.VISIBLE
 
+        // Animate bottom bar appearance
         bottomActionBar.visibility = View.VISIBLE
         bottomActionBar.translationY = 200f
         bottomActionBar.alpha = 0f
@@ -218,6 +228,7 @@ class MainActivity : BaseActivity() {
         if (!isSelectionMode) return
         isSelectionMode = false
 
+        // Restore normal UI
         menuIcon.visibility = View.VISIBLE
         penIcon.visibility = View.VISIBLE
         backIcon.visibility = View.GONE
@@ -239,11 +250,13 @@ class MainActivity : BaseActivity() {
         updateBottomFavoriteIconBasedOnSelection()
     }
 
+    // Update "Select All"/"Deselect All" label
     private fun updateSelectAllLabel() {
         val allSelected = task1CheckBox.isChecked && task2CheckBox.isChecked
         selectAllText.text = if (allSelected) "Deselect All" else "Select All"
     }
 
+    // Toggle favorite state for selected tasks
     private fun toggleFavoriteForSelected() {
         val faveColor = Color.parseColor("#FFF9C4")
         val normalColor = Color.WHITE
@@ -263,6 +276,7 @@ class MainActivity : BaseActivity() {
         updateSelectAllLabel()
     }
 
+    // Delete selected tasks
     private fun deleteSelectedTasks() {
         if (task1CheckBox.isChecked && task1Container.visibility == View.VISIBLE) {
             task1Container.visibility = View.GONE
@@ -277,6 +291,7 @@ class MainActivity : BaseActivity() {
         updateSelectAllLabel()
     }
 
+    // Update bottom favorite icon based on current state
     private fun updateBottomFavoriteIconBasedOnSelection() {
         if (!isSelectionMode) {
             val anyFavorite = task1IsFavorite || task2IsFavorite
@@ -296,18 +311,18 @@ class MainActivity : BaseActivity() {
         }
 
         val allSelectedAreFavorite = selectedTasks.all { it }
-        if (allSelectedAreFavorite) {
-            favoriteIcon.setImageResource(R.drawable.ic_unfavorite)
-        } else {
-            favoriteIcon.setImageResource(R.drawable.ic_star)
-        }
+        favoriteIcon.setImageResource(
+            if (allSelectedAreFavorite) R.drawable.ic_unfavorite else R.drawable.ic_star
+        )
     }
 
+    // Simple fade animation for any view
     private fun fadeInView(view: View, duration: Long) {
         view.alpha = 0f
         view.animate().alpha(1f).setDuration(duration).start()
     }
 
+    // Subtle toolbar scaling animation
     private fun scaleToolbar(toolbar: Toolbar) {
         toolbar.animate()
             .scaleX(1.1f)
