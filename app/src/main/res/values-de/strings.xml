@@ -11,4 +11,9 @@
     <string name="taskNameEditText">Aufgabenname</string>
     <string name="titleText">Wählen Sie eine Karte</string>
     <string name="cardTitle">Card</string>
+    <string name="create_card">Karte erstellen</string>
+    <string name="back">zurück</string>
+    <string name="step_voice_input">2. Geben Sie Ihre Stimme ein!</string>
+    <string name="card_image">Kartenbild</string>
+    <string name="record_audio">Audio aufnehmen</string>
 </resources>

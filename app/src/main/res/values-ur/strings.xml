@@ -10,4 +10,9 @@
     <string name="text">آئیے ایک کام شامل کریں۔</string>
     <string name="taskNameEditText">کام کا نام</string>
     <string name="titleText">ایک کارڈ کا انتخاب کریں</string>
+    <string name="create_card">کارڈ بنائیں</string>
+    <string name="back">واپس</string>
+    <string name="step_voice_input">2. آئیے آپ کی آواز درج کریں!</string>
+    <string name="card_image">کارڈ کی تصویر</string>
+    <string name="record_audio">آڈیو ریکارڈ کریں۔</string>
 </resources>

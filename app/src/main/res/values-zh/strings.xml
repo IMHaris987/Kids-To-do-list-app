@@ -10,4 +10,9 @@
     <string name="text">让我们添加一个任务吧！</string>
     <string name="taskNameEditText">任務名稱</string>
     <string name="titleText">選擇一張卡</string>
+    <string name="create_card">創建卡片</string>
+    <string name="back">後退</string>
+    <string name="step_voice_input">2.讓我們輸入你的聲音！</string>
+    <string name="card_image">卡片圖像</string>
+    <string name="record_audio">錄製音訊</string>
 </resources>

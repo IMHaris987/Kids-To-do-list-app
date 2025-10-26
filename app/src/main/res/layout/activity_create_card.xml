@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9E3E0">
+
+    <!-- Top App Bar (Yellow) -->
+    <View
+        android:id="@+id/topBarBg"
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:background="#FFD83A"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Back arrow -->
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Back"
+        app:layout_constraintTop_toTopOf="@id/topBarBg"
+        app:layout_constraintBottom_toBottomOf="@id/topBarBg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="12dp" />
+
+    <!-- Title centered in top bar -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Create Card"
+        android:textColor="#222222"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/topBarBg"
+        app:layout_constraintBottom_toBottomOf="@id/topBarBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Subtitle text below the top bar -->
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1. Let's add a photo card!"
+        android:textSize="22sp"
+        android:textColor="#4A4A4A"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        app:layout_constraintTop_toBottomOf="@id/topBarBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="28dp" />
+
+    <!-- Image preview placeholder -->
+    <ImageView
+        android:id="@+id/imagePreview"
+        android:layout_width="220dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="36dp"
+        android:background="#000"
+        android:scaleType="centerCrop"
+        android:contentDescription="Photo preview"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- First button: Take a photo -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_take"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="36dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/imagePreview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="14dp"
+            android:paddingEnd="18dp"
+            android:gravity="center_vertical"
+            android:background="#FFD83A">
+
+            <ImageView
+                android:id="@+id/ic_camera"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_camera"
+                android:contentDescription="camera"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/tv_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Take a photo"
+                android:textSize="18sp"
+                android:textColor="#222222"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_camera"
+                android:layout_marginStart="18dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Second button: Choose a photo -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_choose"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="18dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/card_take"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="14dp"
+            android:paddingEnd="18dp"
+            android:gravity="center_vertical"
+            android:background="#FFD83A">
+
+            <ImageView
+                android:id="@+id/ic_gallery"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_gallery"
+                android:contentDescription="gallery"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/tv_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose a photo"
+                android:textSize="18sp"
+                android:textColor="#222222"
+                android:fontFamily="sans-serif-medium"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_gallery"
+                android:layout_marginStart="18dp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

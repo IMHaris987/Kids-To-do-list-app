@@ -10,7 +10,7 @@ import android.widget.ImageView
 class AddTaskActivity : BaseActivity() {
 
     // UI elements
-    private lateinit var backIcon: ImageView        // Navigates back to the previous screen
+    private lateinit var backIcon: ImageView        // Navigates back to the previous screen020*-----------
     private lateinit var tickIcon: ImageView        // Confirms and saves the task
     private lateinit var taskNameEditText: EditText // Input field for the task title
 

@@ -7,4 +7,6 @@
     <color name="nav_selected_text">#000000</color>  <!-- text when selected -->
     <color name="nav_unselected_text">#000000</color> <!-- text when unselected (keep black) -->
     <color name="yellow">#E4FFE81A</color>
+    <color name="green">#a4c639</color>
+    <color name="teal_700">#00796B</color>
 </resources>

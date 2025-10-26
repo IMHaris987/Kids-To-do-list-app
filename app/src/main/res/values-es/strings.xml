@@ -10,4 +10,9 @@
     <string name="text">¡Vamos a agregar una tarea!</string>
     <string name="taskNameEditText">nombre de la tarea</string>
     <string name="titleText">seleccione una tarjeta</string>
+    <string name="create_card">crear tarjeta</string>
+    <string name="back">atrás</string>
+    <string name="step_voice_input">2. ¡Deja que ingrese tu voz!</string>
+    <string name="card_image">Imagen de la tarjeta</string>
+    <string name="record_audio">Grabar audio</string>
 </resources>

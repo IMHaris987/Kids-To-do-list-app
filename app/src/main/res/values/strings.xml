@@ -11,4 +11,9 @@
     <string name="taskNameEditText">Task Name</string>
     <string name="titleText">Choose a Card</string>
     <string name="cardTitle" translatable="false">Card</string>
+    <string name="create_card">Create Card</string>
+    <string name="back">Back</string>
+    <string name="step_voice_input">2. Let\'s input your voice!</string>
+    <string name="card_image">Card Image</string>
+    <string name="record_audio">Record Audio</string>
 </resources>

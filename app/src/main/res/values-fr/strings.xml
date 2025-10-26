@@ -10,4 +10,9 @@
     <string name="text">Ajoutons une tâche</string>
     <string name="taskNameEditText">Nom du travail</string>
     <string name="titleText">Choisissez une carte</string>
+    <string name="create_card">Créer une carte</string>
+    <string name="back">dos</string>
+    <string name="step_voice_input">2. Entrons votre voix !</string>
+    <string name="card_image">Image de la carte</string>
+    <string name="record_audio">Enregistrer l\'audio</string>
 </resources>
