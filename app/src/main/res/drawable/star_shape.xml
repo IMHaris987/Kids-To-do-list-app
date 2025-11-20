@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="82dp"
+    android:height="71dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- Outer shadow -->
+    <path
+        android:fillColor="#BCA37F"
+        android:pathData="M256,32 L317,192 L480,192 L352,304 L400,480 L256,384 L112,480 L160,304 L32,192 L195,192 Z"
+        android:fillAlpha="0.3" />
+
+    <!-- Main star body -->
+    <path
+        android:fillColor="#EBD9B4"
+        android:strokeColor="#D2B48C"
+        android:strokeWidth="6"
+        android:strokeLineJoin="round"
+        android:pathData="M256,48 L312,184 L456,184 L340,288 L380,456 L256,368 L132,456 L172,288 L56,184 L200,184 Z" />
+
+</vector>

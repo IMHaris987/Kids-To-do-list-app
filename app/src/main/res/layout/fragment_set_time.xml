@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/setTimeFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E8E3DF"
+    tools:context=".ui.createcard.SetTimeFragment">
+
+    <!-- Top Dark Section -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="#2B2B2B">
+
+        <!-- Back Arrow Button - Top Left -->
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="#FFFFFF" />
+
+        <!-- Card Content Container -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <!-- Analog Clock on Left - PROPER CIRCLE -->
+            <FrameLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/clock_brown_circle">
+
+                <!-- White Inner Circle -->
+                <View
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/clock_white_circle" />
+
+                <!-- Analog clock -->
+                <AnalogClock
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/clock_white_circle"
+                    android:dial="@drawable/clock_face"
+                    android:hand_hour="@drawable/clock_hour_hand"
+                    android:hand_minute="@drawable/clock_minute_hand" />
+
+            </FrameLayout>
+
+            <!-- Card in Middle -->
+            <RelativeLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/card_background"
+                android:padding="16dp">
+
+                <!-- Card Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/cardImage"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@android:drawable/ic_menu_gallery" />
+
+                    <TextView
+                        android:id="@+id/cardTitle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Card Title"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Tick Icon on Right Side -->
+        <ImageView
+            android:id="@+id/tickIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Confirm"
+            android:src="@drawable/ic_tick"
+            app:tint="#FFFFFF" />
+    </RelativeLayout>
+
+    <!-- Time Selector Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <!-- Custom Time Picker Display -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Up Arrows -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/btnHourUp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_up"
+                    android:contentDescription="Increase hour" />
+
+                <Space
+                    android:layout_width="32dp"
+                    android:layout_height="match_parent" />
+
+                <ImageButton
+                    android:id="@+id/btnMinuteUp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_up"
+                    android:contentDescription="Increase minute" />
+            </LinearLayout>
+
+            <!-- Time Text -->
+            <TextView
+                android:id="@+id/tvSelectedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21:26"
+                android:textSize="52sp"
+                android:textStyle="bold"
+                android:textColor="#2B2B2B"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="sans-serif-black" />
+
+            <!-- Down Arrows -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/btnHourDown"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_down"
+                    android:contentDescription="Decrease hour" />
+
+                <Space
+                    android:layout_width="32dp"
+                    android:layout_height="match_parent" />
+
+                <ImageButton
+                    android:id="@+id/btnMinuteDown"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_down"
+                    android:contentDescription="Decrease minute" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- "Without time" Button -->
+        <Button
+            android:id="@+id/btnWithoutTime"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D0C6BE"
+            android:text="Without time"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+</LinearLayout>

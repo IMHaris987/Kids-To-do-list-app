@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="8dp">
+
+    <!-- Analog Clock Container -->
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/clock_brown_circle">
+
+        <!-- White Inner Circle -->
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:background="@drawable/clock_white_circle" />
+
+        <!-- Analog clock -->
+        <AnalogClock
+            android:id="@+id/analogClock"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:background="@drawable/clock_white_circle"
+            android:dial="@drawable/clock_face"
+            android:hand_hour="@drawable/clock_hour_hand"
+            android:hand_minute="@drawable/clock_minute_hand" />
+
+    </FrameLayout>
+
+    <!-- Card in Middle -->
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/card_background"
+        android:padding="16dp">
+
+        <!-- Cancel Button - Top Right -->
+        <ImageButton
+            android:id="@+id/btnCancel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/circle_background"
+            android:src="@android:drawable/ic_delete"
+            android:scaleType="centerInside"
+            android:contentDescription="Remove card"
+            android:padding="4dp" />
+
+        <!-- Card Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/cardImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <TextView
+                android:id="@+id/cardTitle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Card Title"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textStyle="bold" />
+
+            <!-- Time Text Display -->
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#666"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Star on Right -->
+    <ImageView
+        android:id="@+id/starIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/star_shape"
+        android:contentDescription="Star"
+        android:padding="4dp"
+        android:elevation="40dp" />
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E0D5D0">
+
+    <!-- Main Content Area -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="24dp">
+
+        <!-- Step Title -->
+        <TextView
+            android:id="@+id/stepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="3. Let's type in a sentence!"
+            android:textSize="20sp"
+            android:textColor="#4A4A4A"
+            android:layout_marginTop="8dp" />
+
+        <!-- Image Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageCard"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/stepTitle"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Image View for the captured photo -->
+                <ImageView
+                    android:id="@+id/cardImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/card_image" />
+
+                <!-- EditText overlay at bottom -->
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:hint="Enter text here"
+                    android:textColorHint="#999999"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:inputType="text" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Green Button with Tick Icon -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageCard"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_tick"
+            app:fabSize="normal"
+            app:fabCustomSize="80dp"
+            app:maxImageSize="40dp"
+            app:backgroundTint="#66BB6A"
+            app:tint="#FFFFFF"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            android:contentDescription="Done button" />
+    </RelativeLayout>
+</LinearLayout>

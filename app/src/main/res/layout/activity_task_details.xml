@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E3DF">
+
+    <!-- 🔶 TOP YELLOW BAR (Will be hidden when fragment is visible) -->
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#FFDF32">
+
+        <!-- Back arrow -->
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Task"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+
+        <!-- Pencil edit icon -->
+        <ImageView
+            android:id="@+id/editBtn"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_edit_black" />
+    </RelativeLayout>
+
+    <!-- MAIN CONTENT AREA (for task details) -->
+    <RelativeLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/bottomBar">
+
+        <!-- CARDS LIST -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cardsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:clipToPadding="false" />
+
+    </RelativeLayout>
+
+    <!-- FRAGMENT CONTAINER (for edit fragment) - This will cover the entire screen -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <!-- ⭐ BOTTOM BLUE STAR PROGRESS BAR (Will be hidden when fragment is visible) -->
+    <RelativeLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2D8BEF">
+
+        <!-- Left star -->
+        <ImageView
+            android:id="@+id/starLeft"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_star_yellow" />
+
+        <!-- Progress Bar Container -->
+        <RelativeLayout
+            android:id="@+id/progressContainer"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_toEndOf="@id/starLeft"
+            android:layout_toStartOf="@id/progressEnd"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_corners">
+
+            <!-- Yellow progress bar - This will expand dynamically -->
+            <View
+                android:id="@+id/progressBar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_yellow" />
+
+        </RelativeLayout>
+
+        <!-- Invisible view to mark the end of progress area -->
+        <View
+            android:id="@+id/progressEnd"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
