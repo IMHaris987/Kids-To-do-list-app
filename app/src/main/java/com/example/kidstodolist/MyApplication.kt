@@ -2,6 +2,7 @@ package com.example.kidstodolist
 
 import android.app.Application
 import android.content.Context
+import com.example.kidstodolist.utils.LocaleHelper
 
 // Custom Application class that initializes global settings for the app
 // In this case, it's used to handle app-wide locale (language) management

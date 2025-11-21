@@ -22,7 +22,7 @@
 
         <!-- Splash screen -->
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -33,17 +33,17 @@
 
         <!-- MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true" />
 
         <!-- AddTaskActivity -->
-        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".ui.addtask.AddTaskActivity" />
 
         <!-- ChooseCardActivity -->
-        <activity android:name=".ChooseCardActivity" />
+        <activity android:name=".ui.choosecard.ChooseCardActivity" />
 
         <!-- CreateCardActivity -->
-        <activity android:name=".CreateCardActivity" />
+        <activity android:name=".ui.createcard.CreateCardActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
